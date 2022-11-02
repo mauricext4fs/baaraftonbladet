@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:baaraftonbladet/Resources/Private/Language/locallang_csh_tx_baaraftonbladet_domain_model_nyheter.xlf" date="2022-10-31T00:14:40Z" product-name="baaraftonbladet">
+		<header/>
+		<body>
+			<trans-unit id="title.description" resname="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="text.description" resname="text.description">
+				<source>text</source>
+			</trans-unit>
+			<trans-unit id="author.description" resname="author.description">
+				<source>author</source>
+			</trans-unit>
+			<trans-unit id="date.description" resname="date.description">
+				<source>date</source>
+			</trans-unit>
+			<trans-unit id="tags.description" resname="tags.description">
+				<source>Article tags</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

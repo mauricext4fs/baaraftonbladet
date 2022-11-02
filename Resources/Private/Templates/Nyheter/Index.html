@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Nyheter:
+          Index.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+    <h1>Listing for Nyheter</h1>
+
+    <f:flashMessages />
+
+    <table class="tx_baaraftonbladet">
+        <tr>
+            <th><f:translate key="tx_baaraftonbladet_domain_model_nyheter.title" /></th>
+            <th><f:translate key="tx_baaraftonbladet_domain_model_nyheter.text" /></th>
+            <th><f:translate key="tx_baaraftonbladet_domain_model_nyheter.author" /></th>
+            <th><f:translate key="tx_baaraftonbladet_domain_model_nyheter.date" /></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <f:for each="{nyheters}" as="nyheter">
+            <tr>
+                <td><f:link.action action="show" arguments="{nyheter : nyheter}">{nyheter.title}</f:link.action></td>
+                <td><f:link.action action="show" arguments="{nyheter : nyheter}">{nyheter.text}</f:link.action></td>
+                <td><f:link.action action="show" arguments="{nyheter : nyheter}">{nyheter.author}</f:link.action></td>
+                <td><f:link.action action="show" arguments="{nyheter : nyheter}">{nyheter.date}</f:link.action></td>
+                <td><f:link.action action="edit" arguments="{nyheter : nyheter}">Edit</f:link.action></td>
+                <td><f:link.action action="delete" arguments="{nyheter : nyheter}">Delete</f:link.action></td>
+            </tr>
+        </f:for>
+    </table>
+
+    <f:link.action action="new">New Nyheter</f:link.action>
+</f:section>
+</html>

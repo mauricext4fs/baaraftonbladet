@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:baaraftonbladet/Resources/Private/Language/locallang_db.xlf" date="2022-10-31T00:14:40Z" product-name="baaraftonbladet">
+		<header/>
+		<body>
+			<trans-unit id="tx_baaraftonbladet_domain_model_nyheter" resname="tx_baaraftonbladet_domain_model_nyheter">
+				<source>Nyheter</source>
+			</trans-unit>
+			<trans-unit id="tx_baaraftonbladet_domain_model_nyheter.title" resname="tx_baaraftonbladet_domain_model_nyheter.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_baaraftonbladet_domain_model_nyheter.text" resname="tx_baaraftonbladet_domain_model_nyheter.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_baaraftonbladet_domain_model_nyheter.author" resname="tx_baaraftonbladet_domain_model_nyheter.author">
+				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="tx_baaraftonbladet_domain_model_nyheter.date" resname="tx_baaraftonbladet_domain_model_nyheter.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_baaraftonbladet_domain_model_nyheter.tags" resname="tx_baaraftonbladet_domain_model_nyheter.tags">
+				<source>Tags</source>
+			</trans-unit>
+			<trans-unit id="tx_baaraftonbladet_domain_model_tag" resname="tx_baaraftonbladet_domain_model_tag">
+				<source>Tag</source>
+			</trans-unit>
+			<trans-unit id="tx_baaraftonbladet_domain_model_tag.text" resname="tx_baaraftonbladet_domain_model_tag.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_baaraftonbladet_baaraftonbladetnyheterf.name" resname="tx_baaraftonbladet_baaraftonbladetnyheterf.name">
+				<source>Baar Aftonbladet Nyheter</source>
+			</trans-unit>
+			<trans-unit id="tx_baaraftonbladet_baaraftonbladetnyheterf.description" resname="tx_baaraftonbladet_baaraftonbladetnyheterf.description">
+				<source>Baar Aftonbladet Nyheter</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

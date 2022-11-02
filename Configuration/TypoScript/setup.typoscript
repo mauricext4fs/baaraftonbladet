@@ -1,0 +1,71 @@
+plugin.tx_baaraftonbladet_baaraftonbladetnyheterf {
+    view {
+        templateRootPaths.0 = EXT:baaraftonbladet/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_baaraftonbladet_baaraftonbladetnyheterf.view.templateRootPath}
+        partialRootPaths.0 = EXT:baaraftonbladet/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_baaraftonbladet_baaraftonbladetnyheterf.view.partialRootPath}
+        layoutRootPaths.0 = EXT:baaraftonbladet/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_baaraftonbladet_baaraftonbladetnyheterf.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_baaraftonbladet_baaraftonbladetnyheterf.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+# these classes are only used in auto-generated templates
+plugin.tx_baaraftonbladet._CSS_DEFAULT_STYLE (
+    textarea.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    input.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    .tx-baaraftonbladet table {
+        border-collapse:separate;
+        border-spacing:10px;
+    }
+
+    .tx-baaraftonbladet table th {
+        font-weight:bold;
+    }
+
+    .tx-baaraftonbladet table td {
+        vertical-align:top;
+    }
+
+    .typo3-messages .message-error {
+        color:red;
+    }
+
+    .typo3-messages .message-ok {
+        color:green;
+    }
+)
+
+# Module configuration
+module.tx_baaraftonbladet_site_baaraftonbladetbaaraftonbladetnyheterb {
+    persistence {
+        storagePid = {$module.tx_baaraftonbladet_baaraftonbladetnyheterb.persistence.storagePid}
+    }
+    view {
+        templateRootPaths.0 = EXT:baaraftonbladet/Resources/Private/Backend/Templates/
+        templateRootPaths.1 = {$module.tx_baaraftonbladet_baaraftonbladetnyheterb.view.templateRootPath}
+        partialRootPaths.0 = EXT:baaraftonbladet/Resources/Private/Backend/Partials/
+        partialRootPaths.1 = {$module.tx_baaraftonbladet_baaraftonbladetnyheterb.view.partialRootPath}
+        layoutRootPaths.0 = EXT:baaraftonbladet/Resources/Private/Backend/Layouts/
+        layoutRootPaths.1 = {$module.tx_baaraftonbladet_baaraftonbladetnyheterb.view.layoutRootPath}
+    }
+}
