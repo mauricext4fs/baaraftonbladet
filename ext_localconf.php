@@ -6,12 +6,12 @@ defined('TYPO3') || die();
         'Baaraftonbladet',
         'Baaraftonbladetnyheterf',
         [
-            \Mauricext4fs\Baaraftonbladet\Controller\NyheterController::class => 'list, show, new, create, edit, update, downloadcsv, downloadJson',
-            \Mauricext4fs\Baaraftonbladet\Controller\TagController::class => 'list, show, downloadcsv'
+            \Mauricext4fs\Baaraftonbladet\Controller\NyheterController::class => 'list, show, new, create, edit, update, downloadCsv, downloadJson',
+            \Mauricext4fs\Baaraftonbladet\Controller\TagController::class => 'list, show, downloadCsv'
         ],
         // non-cacheable actions
         [
-            \Mauricext4fs\Baaraftonbladet\Controller\NyheterController::class => 'new, create, edit, update, downloadcsv, downloadJson'
+            \Mauricext4fs\Baaraftonbladet\Controller\NyheterController::class => 'new, create, edit, update, downloadCsv, downloadJson'
         ]
     );
 

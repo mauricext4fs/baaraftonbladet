@@ -8,8 +8,8 @@ defined('TYPO3') || die();
         'baaraftonbladetnyheterb',
         '',
         [
-            \Mauricext4fs\Baaraftonbladet\Controller\NyheterController::class => 'list, show, new, create, edit, update, downloadcsv, downloadJson, delete',
-            \Mauricext4fs\Baaraftonbladet\Controller\TagController::class => 'list, show, new, create, edit, update, downloadcsv, downloadJson, delete',
+            \Mauricext4fs\Baaraftonbladet\Controller\NyheterController::class => 'list, show, new, create, edit, update, downloadCsv, downloadJson, delete',
+            \Mauricext4fs\Baaraftonbladet\Controller\TagController::class => 'list, show, new, create, edit, update, downloadCsv, downloadJson, delete',
             
         ],
         [

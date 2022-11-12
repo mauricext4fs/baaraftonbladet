@@ -63,7 +63,7 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function downloadcsvAction(): \Psr\Http\Message\ResponseInterface
+    public function downloadCsvAction(): \Psr\Http\Message\ResponseInterface
     {
         $this->defaultViewObjectName = \TYPO3\CMS\Extbase\Mvc\View\JsonView::class;
         $nyheters = $this->nyheterRepository->findAll();
