@@ -89,7 +89,7 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
 		$csvOutput = $csvLabel . $csvOutput;
         
-		$fileName = "Nyheters " . date('d.m.Y his') . ".csv";
+		$fileName = "Nyheters_" . date('d.m.Y_his') . ".csv";
 
         $response = $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'application/csv')
