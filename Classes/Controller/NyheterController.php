@@ -104,28 +104,16 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     {
         $this->defaultViewObjectName = \TYPO3\CMS\Extbase\Mvc\View\JsonView::class;
         $nyheters = $this->nyheterRepository->findAll();
-        $nyhetersArr = [];
+        /*
+         * Replace tags obj to str for CSV
+         */
         foreach ($nyheters as $nyheterItem) {
-            $tags = [];
-            $tagsCollection = $nyheterItem->getTags(); 
-            foreach ($tagsCollection as $tagItem) {
-
-                $tags[] = $tagItem->getText();
-            }
-            $nyheterItem->tags = implode(",", $tags);
-			$nyheterArr = (array) $nyheterItem;
-            $nyhetersArr[] = $nyheterArr;
+            $nyheterItem->tags = $this->tagsToText($nyheterItem->getTags());
         }
-
-		
-		//$output = json_encode($nyhetersArr);
         $this->view->assign('nyheters', $nyheters);
-
-        $response = $this->responseFactory->createResponse()
+        return $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'text/json; charset=utf-8')
             ->withBody($this->streamFactory->createStream($this->view->render()));
-		
-		return $response;
     }
 
 	private function tagsToText($tagsCollection)
