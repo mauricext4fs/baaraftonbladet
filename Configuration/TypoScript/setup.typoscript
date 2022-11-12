@@ -1,3 +1,5 @@
+6 @import 'EXT:baaraftonbladet/Configuration/TypoScript/Setup/Page.typoscript'
+
 plugin.tx_baaraftonbladet_baaraftonbladetnyheterf {
     view {
         templateRootPaths.0 = EXT:baaraftonbladet/Resources/Private/Templates/
@@ -9,7 +11,7 @@ plugin.tx_baaraftonbladet_baaraftonbladetnyheterf {
     }
     persistence {
         storagePid = {$plugin.tx_baaraftonbladet_baaraftonbladetnyheterf.persistence.storagePid}
-        #recursive = 1
+        recursive = 1
     }
     features {
         #skipDefaultArguments = 1

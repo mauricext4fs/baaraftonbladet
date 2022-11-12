@@ -20,12 +20,13 @@ namespace Mauricext4fs\Baaraftonbladet\Domain\Model;
 class Tag extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
+    public $dump = "tag dump";
     /**
      * text
      *
      * @var string
      */
-    protected $text = null;
+    public $text = " bule ";
 
     /**
      * Returns the text

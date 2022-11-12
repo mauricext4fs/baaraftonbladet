@@ -1,0 +1,7 @@
+fut fut
+<f:for each="{nyheters}" as="nyheter">
+<f:translate key="tx_baaraftonbladet_domain_model_nyheter.title" />
+{nyheter.title}
+<f:translate key="tx_baaraftonbladet_domain_model_nyheter.author" />
+{nyheter.author}
+</f:for>

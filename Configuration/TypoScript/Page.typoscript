@@ -1,0 +1,12 @@
+json = PAGE
+json {
+   typeNum = 100
+   10 =< tt_content.list.20.*[baaraftonbladet]*_*[baaraftonbladetnyheterb]*
+
+   config {
+      disableAllHeaderCode = 1
+      additionalHeaders.10.header = Content-type:application/json
+      xhtml_cleaning = 0
+      admPanel = 0
+   }
+}

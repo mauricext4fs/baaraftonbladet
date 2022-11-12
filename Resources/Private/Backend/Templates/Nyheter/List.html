@@ -37,6 +37,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
             <th><f:translate key="tx_baaraftonbladet_domain_model_nyheter.text" /></th>
             <th><f:translate key="tx_baaraftonbladet_domain_model_nyheter.author" /></th>
             <th><f:translate key="tx_baaraftonbladet_domain_model_nyheter.date" /></th>
+            <th>Tags</th>
             <th></th>
             <th></th>
         </tr>
@@ -46,13 +47,19 @@ Otherwise your changes will be overwritten the next time you save the extension 
                 <td><f:link.action action="show" arguments="{nyheter: nyheter}">{nyheter.text}</f:link.action></td>
                 <td><f:link.action action="show" arguments="{nyheter: nyheter}">{nyheter.author}</f:link.action></td>
                 <td><f:link.action action="show" arguments="{nyheter: nyheter}">{nyheter.date}</f:link.action></td>
+                <td>
+                <f:for each="{nyheter.tags}" as="tag">
+                    {tag.text}<br />
+                </f:for>
+                </td>
                 <td><f:link.action action="edit" arguments="{nyheter: nyheter}" class="btn btn-default">Edit</f:link.action></td>
-                <td><f:link.action action="delete" arguments="{nyheter: nyheter}" class="btn btn-danger">Delete</f:link.action><f:link.action action="downloadcsv"  arguments="{nyheter: nyheter}" class="btn btn-default">Download CSV</f:link.action></td>
+                <td><f:link.action action="delete" arguments="{nyheter: nyheter}" class="btn btn-danger">Delete</f:link.action>
             </tr>
         </f:for>
     </table>
 
     <f:link.action action="new" class="btn btn-default">New Nyheter</f:link.action>
-    <f:link.action action="downloadcsv"  arguments="{nyheter: nyheter}" class="btn btn-default">Download CSV</f:link.action>
+    <f:link.action action="downloadJson" class="btn btn-info" format="json">Download JSON Format</f:link.action>
+    <f:link.action action="downloadcsv" class="btn btn-default">Download zzzzCSV</f:link.action>
 </f:section>
 </html>

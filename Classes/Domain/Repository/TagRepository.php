@@ -15,9 +15,9 @@ namespace Mauricext4fs\Baaraftonbladet\Domain\Repository;
  */
 
 /**
- * The repository for Nyheters
+ * The repository for Tags
  */
-class NyheterRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class TagRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     public $dump = "you got dump!";
 }

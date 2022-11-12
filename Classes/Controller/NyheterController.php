@@ -65,17 +65,87 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function downloadcsvAction(): \Psr\Http\Message\ResponseInterface
     {
+        $this->defaultViewObjectName = \TYPO3\CMS\Extbase\Mvc\View\JsonView::class;
         $nyheters = $this->nyheterRepository->findAll();
-		$jsonOutput = json_encode($nyheters);
-        $this->view->assign('nyheters', $nyheters);
-		return $this->htmlResponse($jsonOutput);
-		//return $this->htmlResponse('vlad');
-		//return $this->htmlResponse('vlad');
-		/*return $this->responseFactory->createResponse()
-            ->withHeader('Content-Type', 'text/xml; charset=utf-8')
-            ->withBody($this->streamFactory->createStream($this->view->render()));*/
-        //return $this->htmlResponse();
+		
+		$csvOutput = "";
+		$csvLabel = "";
+		$labelArr = [];
+		foreach ($nyheters as $nyheterObj) {
+			$nyheterArr = array();
+			foreach ($nyheterObj as $label => $value) {
+				$labelArr[] = $label;
+				if ($label != "tags") {
+					$nyheterArr[] = $value;
+				} else {
+					//$nyheterArr[] = $this->tagsToText($value->getTags()); 
+				}
+			}
+			if (empty($csvLabel)) {
+				$csvLabel .= \TYPO3\CMS\Core\Utility\CsvUtility::csvValues($labelArr) . "\n";
+			}
+			$csvOutput .= \TYPO3\CMS\Core\Utility\CsvUtility::csvValues($nyheterArr) . "\n";
+		}	
+
+		$csvOutput = $csvLabel . $csvOutput;
+        
+		$fileName = "Nyheters " . date('d.m.Y his') . ".csv";
+
+        $response = $this->responseFactory->createResponse()
+            ->withHeader('Content-Type', 'application/csv')
+			->withHeader('Content-Disposition', 'attachment; filename=' . $fileName)
+			->withHeader('Content-Transfer-Encoding', 'binary')
+            ->withBody($this->streamFactory->createStream($csvOutput));
+		
+        
+		return $response;
     }
+
+
+    /**
+     * action downloadJson
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function downloadJsonAction(): \Psr\Http\Message\ResponseInterface
+    {
+        $this->defaultViewObjectName = \TYPO3\CMS\Extbase\Mvc\View\JsonView::class;
+        $nyheters = $this->nyheterRepository->findAll();
+        $nyhetersArr = [];
+        foreach ($nyheters as $nyheterItem) {
+            $tags = [];
+            $tagsCollection = $nyheterItem->getTags(); 
+            foreach ($tagsCollection as $tagItem) {
+
+                $tags[] = $tagItem->getText();
+            }
+            $nyheterItem->tags = implode(",", $tags);
+			$nyheterArr = (array) $nyheterItem;
+            $nyhetersArr[] = $nyheterArr;
+        }
+
+		
+		//$output = json_encode($nyhetersArr);
+        $this->view->assign('nyheters', $nyheters);
+
+        $response = $this->responseFactory->createResponse()
+            ->withHeader('Content-Type', 'text/json; charset=utf-8')
+            ->withBody($this->streamFactory->createStream($this->view->render()));
+		
+		return $response;
+    }
+
+	private function tagsToText($tagsCollection)
+	{
+		$tags = [];
+		foreach ($tagsCollection as $tagItem) {
+
+			$tags[] = $tagItem->getText();
+		}
+		return implode(",", $tags);
+	}
+
+
 
     /**
      * action show

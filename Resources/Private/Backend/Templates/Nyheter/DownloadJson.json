@@ -1,0 +1,9 @@
+[<f:for each="{nyheters}" as="nyheter" iteration="iterator">
+    {
+        "<f:translate key="tx_baaraftonbladet_domain_model_nyheter.title" />": "{nyheter.title}",
+        "<f:translate key="tx_baaraftonbladet_domain_model_nyheter.author" />": "{nyheter.author}",
+        "<f:translate key="tx_baaraftonbladet_domain_model_nyheter.text" />": "{nyheter.text}",
+        "<f:translate key="tx_baaraftonbladet_domain_model_nyheter.date" />": "{nyheter.date}",
+        "<f:translate key="tx_baaraftonbladet_domain_model_nyheter.tags" />": "{nyheter.tags}"
+    }<f:if condition="!{iterator.isLast}">,</f:if>
+</f:for>]

@@ -25,12 +25,12 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      *
      * @var \Mauricext4fs\Baaraftonbladet\Domain\Repository\tagRepository
      */
-    protected $tagRepository = null;
+    public $tagRepository = null;
 
     /**
-     * @param \Mauricext4fs\Baaraftonbladet\Domain\Repository\NyheterRepository $nyheterRepository
+     * @param \Mauricext4fs\Baaraftonbladet\Domain\Repository\TagRepository $tagRepository
      */
-    public function injectNyheterRepository(\Mauricext4fs\Baaraftonbladet\Domain\Repository\NyheterRepository $tagRepository)
+    public function injectTagRepository(\Mauricext4fs\Baaraftonbladet\Domain\Repository\TagRepository $tagRepository)
     {
         $this->tagRepository = $tagRepository;
     }
@@ -53,7 +53,7 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function listAction(): \Psr\Http\Message\ResponseInterface
     {
-        $tags = null;
+        //$tags = null;
         $tags = $this->tagRepository->findAll();
         $this->view->assign('tags', $tags);
         return $this->htmlResponse();

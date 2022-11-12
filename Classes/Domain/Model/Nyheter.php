@@ -25,28 +25,28 @@ class Nyheter extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var string
      */
-    protected $title = null;
+    public $title = null;
 
     /**
      * text
      *
      * @var string
      */
-    protected $text = null;
+    public $text = null;
 
     /**
      * author
      *
      * @var string
      */
-    protected $author = null;
+    public $author = null;
 
     /**
      * date
      *
      * @var string
      */
-    protected $date = null;
+    public $date = null;
 
     /**
      * Article tags
@@ -54,7 +54,7 @@ class Nyheter extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Mauricext4fs\Baaraftonbladet\Domain\Model\Tag>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
-    protected $tags = null;
+    public $tags = null;
 
     /**
      * __construct
