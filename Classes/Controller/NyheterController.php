@@ -65,9 +65,7 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function downloadCsvAction(): \Psr\Http\Message\ResponseInterface
     {
-        $this->defaultViewObjectName = \TYPO3\CMS\Extbase\Mvc\View\JsonView::class;
         $nyheters = $this->nyheterRepository->findAll();
-		
 		$csvOutput = "";
 		$csvLabel = "";
 		$labelArr = [];
@@ -78,7 +76,7 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 				if ($label != "tags") {
 					$nyheterArr[] = $value;
 				} else {
-					//$nyheterArr[] = $this->tagsToText($value->getTags()); 
+					$nyheterArr[] = $this->tagsToText($nyheterObj->getTags());
 				}
 			}
 			if (empty($csvLabel)) {
@@ -86,18 +84,13 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 			}
 			$csvOutput .= \TYPO3\CMS\Core\Utility\CsvUtility::csvValues($nyheterArr) . "\n";
 		}	
-
 		$csvOutput = $csvLabel . $csvOutput;
-        
 		$fileName = "Nyheters_" . date('d.m.Y_his') . ".csv";
-
         $response = $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'application/csv')
 			->withHeader('Content-Disposition', 'attachment; filename=' . $fileName)
 			->withHeader('Content-Transfer-Encoding', 'binary')
             ->withBody($this->streamFactory->createStream($csvOutput));
-		
-        
 		return $response;
     }
 
