@@ -102,7 +102,6 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function downloadJsonAction(): \Psr\Http\Message\ResponseInterface
     {
-        $this->defaultViewObjectName = \TYPO3\CMS\Extbase\Mvc\View\JsonView::class;
         $nyheters = $this->nyheterRepository->findAll();
         /*
          * Replace tags obj to str for CSV
@@ -111,9 +110,7 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $nyheterItem->tags = $this->tagsToText($nyheterItem->getTags());
         }
         $this->view->assign('nyheters', $nyheters);
-        return $this->responseFactory->createResponse()
-            ->withHeader('Content-Type', 'text/json; charset=utf-8')
-            ->withBody($this->streamFactory->createStream($this->view->render()));
+        return $this->jsonResponse();
     }
 
 	private function tagsToText($tagsCollection)
