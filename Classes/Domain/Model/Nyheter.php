@@ -196,6 +196,20 @@ class Nyheter extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * @param string $separator
+     * @return string
+     */
+    public function getTagsAsString($separator): String
+    {
+        $tags = [];
+        foreach ($this->getTags() as $tagItem) {
+
+            $tags[] = $tagItem->getText();
+        }
+        return implode($separator, $tags);
+    }
+
+    /**
      * Sets the tags
      *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Mauricext4fs\Baaraftonbladet\Domain\Model\Tag> $tags
@@ -205,4 +219,5 @@ class Nyheter extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->tags = $tags;
     }
+
 }

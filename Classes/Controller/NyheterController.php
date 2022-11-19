@@ -76,7 +76,7 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                 if ($label != "tags") {
                     $nyheterArr[] = $value;
                 } else {
-                    $nyheterArr[] = $this->tagsToText($nyheterObj->getTags());
+                    $nyheterArr[] = $nyheterObj->getTagsAsString(",");
                 }
             }
             if (empty($csvLabel)) {
@@ -106,23 +106,11 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
          * Replace tags obj to str for CSV
          */
         foreach ($nyheters as $nyheterItem) {
-            $nyheterItem->tags = $this->tagsToText($nyheterItem->getTags());
+            $nyheterItem->tags = $nyheterItem->getTagsAsString(",");
         }
         $this->view->assign('nyheters', $nyheters);
         return $this->jsonResponse();
     }
-
-    private function tagsToText($tagsCollection)
-    {
-        $tags = [];
-        foreach ($tagsCollection as $tagItem) {
-
-            $tags[] = $tagItem->getText();
-        }
-        return implode(",", $tags);
-    }
-
-
 
     /**
      * action show
