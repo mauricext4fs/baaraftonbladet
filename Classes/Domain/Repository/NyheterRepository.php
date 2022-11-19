@@ -21,7 +21,7 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
  */
 class NyheterRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-    public function findByTextSortedByDate(string $text): QueryResultInterface
+    public function findByTextSortedByDate(string $text = "", string $sorting = ""): QueryResultInterface
     {
         $q = $this->createQuery();
         $q->matching(
@@ -30,9 +30,12 @@ class NyheterRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                 $q->like('title', "%" . $text . "%")
             )
         );
-        $q->setOrderings([
-            'date' => QueryInterface::ORDER_DESCENDING
-        ]);
+        if (!empty($sorting)) {
+            $q->setOrderings([
+                //'date' => QueryInterface::ORDER_DESCENDING
+                'date' => $sorting
+            ]);
+        }
 
         return $q->execute();
     }
