@@ -31,6 +31,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <f:flashMessages />
 
+    <f:form name="Text Search" controller="Nyheter" action="list">
+        Search Nyheter:
+        <f:form.textfield name="search" />
+        <f:form.submit value="submit" />
+    </f:form>
+    <br />
+    <br />
+
     <table class="tx_baaraftonbladet">
         <tr>
             <th><f:translate key="tx_baaraftonbladet_domain_model_nyheter.title" /></th>
