@@ -53,7 +53,7 @@ class NyheterController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function listAction(): \Psr\Http\Message\ResponseInterface
     {
-        $search = $this->request->getArgument("search");
+        $search = $this->request->hasArgument("search") ? $this->request->getArgument("search") : "";
 
         if (!empty($search)) {
             $nyheters = $this->nyheterRepository->findByTextSortedByDate($search, "ASC");
